@@ -1,0 +1,9 @@
+torch==1.6.0
+opencv_python==4.1.0.25
+torchvision==0.5.0
+tqdm==4.36.1
+numpy==1.19.4
+scipy==1.5.2
+Pillow==8.0.1
+--extra-index-url https://developer.download.nvidia.com/compute/redist 
+nvidia-dali-cuda100
