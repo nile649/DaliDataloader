@@ -62,3 +62,18 @@ datacount = CountDataIterator(**kwargs)
     
 
 ```
+
+# Function to chunk files to small windows.
+```
+def chunkIt(seq, batch_size):
+    avg = batch_size
+    out = []
+    last = 0
+
+    while last < len(seq):
+        out.append(seq[int(last):int(last + avg)])
+        last += avg
+
+    return out
+
+```
