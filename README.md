@@ -26,3 +26,39 @@ Dali : 6~10min. [Batch 1].
 Dali : 6~10min. [Batch 64].
 Dali : 6~20min. [Multiple Dali iterators with batch 1 and window of 100image-5image].
 ```
+
+# Example Code of using InferenceIterator
+
+modify variables or make small changes in the *DatLoader.py
+
+```
+from data import *
+import timeit
+
+class opt:
+    def __init__(self):
+        self.device = 'cuda'
+        self.typedataloader = 'cuda' # arg to accomodate which dataloader will be used Multicuda > 1 && cuda == 1 && cpu >=1 
+        self.batch_size = 1
+        self.sub_size = 100  # Window of 100 images.
+        self.num_workers = 4
+        self.dataFolder = '/data/sample/'
+
+arg = opt()
+
+def _mainExecute_Detection_(obj,img_,labl,file):
+    """Main code"""
+
+dirpath = arg.dataFolder
+
+kwargs = {
+    "Dir":dirpath,
+    "arg":arg,
+    "main" : _mainExecute_Detection_,
+    #"model" : model, MachineLearning model if any.
+
+}
+datacount = CountDataIterator(**kwargs)
+    
+
+```
